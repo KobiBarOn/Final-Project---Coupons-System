@@ -1,0 +1,81 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="page">
+  <div class="container">
+    <h1>Login</h1>
+    <form action="" #LoginForm="ngForm">
+      <div>
+        <br />
+        <label for="clientType">Client Type: </label>
+        <select
+          name="clientType"
+          id="clientType"
+          [(ngModel)]="clientType"
+          #clientTypeInfo="ngModel"
+          required
+        >
+          <option value="" enabled selected hidden>Choose a drink</option>
+          <option value="ADMINISTRATOR">Administrator</option>
+          <option value="COMPANY">Company</option>
+          <option value="CUSTOMER">Customer</option>
+        </select>
+        <span *ngIf="clientTypeInfo.errors?.required && clientTypeInfo.touched"
+          >*Please select your Client Type</span
+        >
+      </div>
+      <br />
+      <div>
+        <label for="email">Email: </label>
+        <input
+          id="email"
+          name="email"
+          #emailInfo="ngModel"
+          type="text"
+          placeholder="Email"
+          [(ngModel)]="email"
+          required
+          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{3,5}|[a-zA-z]{2,5}\.[a-zA-Z]{2,5})"
+        />
+        <span *ngIf="emailInfo.errors?.required && emailInfo.touched"
+          >*Email is missing</span
+        >
+        <span *ngIf="emailInfo.errors?.pattern && emailInfo.touched"
+          >*Email is unvalid (ex: David@mail-service.com)</span
+        >
+      </div>
+      <br />
+      <div>
+        <label for="password">Password: </label>
+        <input
+          id="password"
+          name="password"
+          #passwordInfo="ngModel"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          required
+          pattern=".{5,}"
+        />
+        <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched"
+          >*Password is missing</span
+        >
+        <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched"
+          >*Password is unvalid. Password must include at least 5
+          characters.</span
+        >
+      </div>
+      <br />
+      <button
+        value="Login"
+        (click)="login()"
+        [disabled]="LoginForm.form.invalid"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

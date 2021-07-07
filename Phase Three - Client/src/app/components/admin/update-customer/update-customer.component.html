@@ -1,0 +1,152 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #updateCustomerFormInfo="ngForm">
+    <h1>Update Customer</h1>
+    <br />
+    <div>
+      <label for="id">ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Customer ID you want to update"
+        [(ngModel)]="customer.id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*ID is missing</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="firstName">First name: </label>
+      <input
+        id="firstName"
+        name="firstName"
+        #firstNameInfo="ngModel"
+        type="text"
+        placeholder="First name"
+        [(ngModel)]="customer.firstName"
+        required
+        pattern="^[A-Z].*$"
+      />
+      <span *ngIf="firstNameInfo.errors?.required && firstNameInfo.touched"
+        >*First name is missing</span
+      >
+      <span *ngIf="firstNameInfo.errors?.pattern && firstNameInfo.touched"
+        >*First name must start with a Capital letter</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="lastName">Last name: </label>
+      <input
+        id="lastName"
+        name="lastName"
+        #lastNameInfo="ngModel"
+        type="text"
+        placeholder="Last name"
+        [(ngModel)]="customer.lastName"
+        required
+        pattern="^[A-Z].*$"
+      />
+      <span *ngIf="lastNameInfo.errors?.required && lastNameInfo.touched"
+        >*Last name is missing</span
+      >
+      <span *ngIf="lastNameInfo.errors?.pattern && lastNameInfo.touched"
+        >*Last name must start with a Capital letter</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        #emailInfo="ngModel"
+        type="text"
+        placeholder="Email"
+        [(ngModel)]="customer.email"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{3,5}|[a-zA-z]{2,5}\.[a-zA-Z]{2,5})"
+      />
+      <span *ngIf="emailInfo.errors?.required && emailInfo.touched"
+        >*Email is missing</span
+      >
+      <span *ngIf="emailInfo.errors?.pattern && emailInfo.touched"
+        >*Email is unvalid (ex: David@mail-service.com)</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="password">Password:</label>
+      <input
+        id="password"
+        name="password"
+        #passwordInfo="ngModel"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="customer.password"
+        required
+        pattern=".{5,}"
+      />
+      <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched"
+        >*Password is missing</span
+      >
+      <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched"
+        >*Password is unvalid. Password must include at least 5
+        characters.</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="updateCustomer()"
+      [disabled]="updateCustomerFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<br />
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+
+<table *ngIf="customer">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="updateCustomerFormInfo.form.valid">
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.firstName }}</td>
+      <td>{{ customer.lastName }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.password }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/admin-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

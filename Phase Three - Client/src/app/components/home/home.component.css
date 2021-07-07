@@ -1,0 +1,40 @@
+.page {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\05_internal_street_lr.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container {
+  justify-content: center;
+  display: inline-block;
+  padding: 1%;
+  margin: 5% auto;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\coupon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 25%;
+}
+
+.container img {
+  justify-content: center;
+  display: inline-block;
+  margin-bottom: 2%;
+  margin-left: 15%;
+}
+
+.container h1 {
+  justify-content: center;
+  display: flex;
+  width: 60%;
+  text-align: center;
+  color: whitesmoke;
+  font-size: xx-large;
+  background-color: black;
+  text-transform: uppercase;
+  margin-top: 10%;
+  margin-left: 10%;
+}

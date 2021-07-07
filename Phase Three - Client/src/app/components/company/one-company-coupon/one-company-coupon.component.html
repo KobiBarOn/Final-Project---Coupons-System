@@ -1,0 +1,83 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="oneCompanyCoupon">
+  <form action="" #couponFormInfo="ngForm">
+    <h1>A single Coupon Details</h1>
+    <br />
+    <div>
+      <label for="id">Coupon ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Requested Coupon ID"
+        [(ngModel)]="id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*Coupon ID is missing</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="getOneCoupon()"
+      [disabled]="couponFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+<br />
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+<br />
+
+<table *ngIf="coupon">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Publish Date</th>
+      <th>Expiry Date</th>
+      <th>Units in Stock</th>
+      <th>Price</th>
+      <th>Company ID</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="coupon.company">
+      <td>{{ coupon.id }}</td>
+      <td>{{ coupon.category }}</td>
+      <td>{{ coupon.title }}</td>
+      <td>{{ coupon.description }}</td>
+      <td>{{ coupon.startDate }}</td>
+      <td>{{ coupon.endDate }}</td>
+      <td>{{ coupon.amount }}</td>
+      <td>{{ coupon.price }} $</td>
+      <td>
+        <div *ngIf="coupon.company">{{ coupon.company.id }}</div>
+      </td>
+      <td>{{ coupon.image }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/company-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

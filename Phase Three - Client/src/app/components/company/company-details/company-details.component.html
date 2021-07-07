@@ -1,0 +1,36 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="companyAccount">
+  <br />
+  <h1>My Account</h1>
+  <br />
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ company.id }}</td>
+        <td>{{ company.name }}</td>
+        <td>{{ company.email }}</td>
+        <td>{{ company.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="backToMenu">
+    <button routerLink="/company-menu" routerLinkActive="active-link">
+      Back to Menu
+    </button>
+  </div>
+</div>

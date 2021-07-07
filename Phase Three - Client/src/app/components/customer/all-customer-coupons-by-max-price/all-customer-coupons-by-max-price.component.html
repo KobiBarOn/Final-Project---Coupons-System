@@ -1,0 +1,73 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #allCustomerCouponsByMaxPriceFormInfo="ngForm">
+    <h1>My Coupons sorted by Price Limit</h1>
+    <br />
+    <div>
+      <label for="maxPrice">Price Limit: </label>
+      <input
+        id="maxPrice"
+        name="maxPrice"
+        #maxPriceInfo="ngModel"
+        type="number"
+        placeholder="Price"
+        [(ngModel)]="maxPrice"
+        required
+      />
+      <span *ngIf="maxPriceInfo.errors?.required && maxPriceInfo.touched"
+        >*Price is missing</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="getCustomerCouponsByMaxPrice()"
+      [disabled]="allCustomerCouponsByMaxPriceFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<br />
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+
+<!-- Coupon_ID, Company_ID, startDate and amount is not included - I don't think that a customer should see this data -->
+<table *ngIf="allCustomerCouponsByMaxPrice">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Expiry Date</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of allCustomerCouponsByMaxPrice">
+      <td>{{ c.category }}</td>
+      <td>{{ c.title }}</td>
+      <td>{{ c.description }}</td>
+      <td>{{ c.endDate }}</td>
+      <td>{{ c.price }} $</td>
+      <td>{{ c.image }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/customer-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

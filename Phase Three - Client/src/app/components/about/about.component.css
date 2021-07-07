@@ -1,0 +1,56 @@
+h1 {
+  transform: translateY(300%);
+  text-align: center;
+  font-size: xx-large;
+  color: whitesmoke;
+  background-color: black;
+}
+
+h3 {
+  transform: translateY(300%);
+  text-align: center;
+  font-size: x-large;
+  color: whitesmoke;
+  background-color: black;
+}
+
+p {
+  text-align: center;
+  color: whitesmoke;
+  transform: translateY(150%);
+  font-size: large;
+  padding: 10px;
+  margin: 0%;
+  background-color: black;
+}
+
+.container {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\05_internal_street_lr.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact {
+  transform: translateY(750%);
+  text-align: center;
+  font-size: x-large;
+  color: whitesmoke;
+  background-color: black;
+}
+
+.gitHub {
+  height: 50px;
+  margin-top: 15%;
+  margin-left: 40.8%;
+}
+
+.linkedIn {
+  color: whitesmoke 20px;
+  height: 47px;
+  margin-top: 16%;
+  margin-left: 5%;
+}

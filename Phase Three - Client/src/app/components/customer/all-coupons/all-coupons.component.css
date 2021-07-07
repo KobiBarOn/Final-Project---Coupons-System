@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+.allCoupons h1 {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-top: 0;
+  background-color: black;
+}
+
+table {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+  margin-bottom: -100px;
+}
+
+th {
+  font-weight: bold;
+  font-size: 1em;
+  text-align: left;
+  color: #f8994b;
+  background-color: rgb(27, 26, 26);
+}
+
+td {
+  font-weight: normal;
+  font-size: 1em;
+  -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+  -moz-box-shadow: 0 2px 2px -2px #0e1119;
+  box-shadow: 0 2px 2px -2px #0e1119;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(80, 77, 77);
+}
+
+tr:nth-child(even) {
+  background-color: rgb(53, 50, 50);
+}
+
+td:first-child {
+  color: #fb667a;
+}
+
+tr:hover {
+  background-color: #f6f48fb2;
+  -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+  -moz-box-shadow: 0 6px 6px -6px #0e1119;
+  box-shadow: 0 6px 6px -6px #0e1119;
+}
+
+td:hover {
+  background-color: #f6f58fef;
+  color: solid black;
+  font-weight: bold;
+
+  box-shadow: #7f7c21 -1px 1px, #7f7c21 -2px 2px, #7f7c21 -3px 3px,
+    #7f7c21 -4px 4px, #7f7c21 -5px 5px, #7f7c21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+@media (max-width: 800px) {
+  td:nth-child(4),
+  th:nth-child(4) {
+    display: none;
+  }
+}
+
+img {
+  display: block;
+  margin: auto;
+  height: 50px;
+}
+
+.backToMenu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.backToMenu button {
+  margin-top: 10px;
+  width: fit-content;
+  height: 40px;
+  background: #f0b688;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 3px solid #f8994b;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Montserrat;
+  outline: none;
+  cursor: pointer;
+}
+
+.backToMenu button:hover {
+  background: #f6ae72;
+}
+
+td:nth-child(7) {
+  text-align: center;
+  background-color: transparent;
+  border-color: transparent;
+  box-sizing: border-box;
+  font-family: Montserrat;
+  cursor: pointer;
+}
+
+td:nth-child(7):hover {
+  color: black;
+  background: rgb(107, 248, 95);
+  background-size: cover;
+
+  box-shadow: rgb(161, 253, 153) -1px 1px, rgb(161, 253, 153) -2px 2px,
+    rgb(161, 253, 153) -3px 3px, rgb(161, 253, 153) -4px 4px,
+    rgb(161, 253, 153) -5px 5px, rgb(161, 253, 153) -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  transition-property: all;
+  transition-timing-function: line;
+}
+
+button {
+  width: 100%;
+  color: greenyellow;
+  border-color: transparent;
+  background: transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+}

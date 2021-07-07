@@ -1,0 +1,212 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #updateCouponFormInfo="ngForm">
+    <h1>Update your Coupon</h1>
+    <br />
+    <div>
+      <label for="id">ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Coupon ID you want to update"
+        [(ngModel)]="coupon.id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*ID is missing</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="category">Category: </label>
+      <select
+        name="category"
+        id="category"
+        [(ngModel)]="coupon.category"
+        #categoryInfo="ngModel"
+        required
+      >
+        <option value="ELECTRONICS">Electronics</option>
+        <option value="RESTAURANT">Restaurant</option>
+        <option value="VACATION">Vacation</option>
+        <option value="GYM">GYM</option>
+        <option value="SPA">SPA</option>
+      </select>
+      <span *ngIf="categoryInfo.errors?.required && categoryInfo.touched"
+        >*Please select the Coupon Category</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="title">Title: </label>
+      <input
+        id="title"
+        name="title"
+        #titleInfo="ngModel"
+        type="text"
+        [(ngModel)]="coupon.title"
+        required
+        pattern="^[A-Z].*$"
+      />
+      <span *ngIf="titleInfo.errors?.required && titleInfo.touched"
+        >*Title is missing</span
+      >
+      <span *ngIf="titleInfo.errors?.pattern && titleInfo.touched"
+        >*Title must start with a Capital letter</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="description">Decription: </label>
+      <input
+        id="description"
+        name="description"
+        #descriptionInfo="ngModel"
+        type="text"
+        [(ngModel)]="coupon.description"
+        required
+        pattern="^[A-Z].*$"
+      />
+      <span *ngIf="descriptionInfo.errors?.required && descriptionInfo.touched"
+        >*Description is missing</span
+      >
+      <span *ngIf="descriptionInfo.errors?.pattern && descriptionInfo.touched"
+        >*Description must start with a Capital letter</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="startDate">Publish Date:</label>
+      <input
+        name="startDate"
+        #startDateInfo="ngModel"
+        type="date"
+        [(ngModel)]="coupon.startDate"
+        required
+      />
+      <span *ngIf="startDateInfo.errors?.required && startDateInfo.touched"
+        >*Start Date is missing</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="endDate">Expiry Date:</label>
+      <input
+        name="endDate"
+        #endDateInfo="ngModel"
+        type="date"
+        [(ngModel)]="coupon.endDate"
+        required
+      />
+      <span *ngIf="endDateInfo.errors?.required && endDateInfo.touched"
+        >*Start Date is missing</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="amount">Amount of Units:</label>
+      <input
+        id="amount"
+        name="amount"
+        #amountInfo="ngModel"
+        type="number"
+        [(ngModel)]="coupon.amount"
+        required
+      />
+      <span *ngIf="amountInfo.errors?.required && amountInfo.touched"
+        >*Please type in the quantity you wish to produce from this new
+        Coupon</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="price">Price:</label>
+      <input
+        id="price"
+        name="price"
+        #priceInfo="ngModel"
+        type="number"
+        [(ngModel)]="coupon.price"
+        required
+      />
+      <span *ngIf="priceInfo.errors?.required && priceInfo.touched"
+        >*Price is missing</span
+      >
+    </div>
+    <br />
+    <div class="image">
+      <label for="image">Image File:</label>
+      <input
+        name="image"
+        #imageInfo="ngModel"
+        type="file"
+        [(ngModel)]="coupon.image"
+        required
+        accept="image/*"
+      />
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="updateCoupon()"
+      [disabled]="updateCouponFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<br />
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+
+<table>
+  <thead>
+    <tr *ngIf="coupon">
+      <th>ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Publish Date</th>
+      <th>Expiry Date</th>
+      <th>Units in Stock</th>
+      <th>Price</th>
+      <th>Company ID</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="company">
+      <td>{{ coupon.id }}</td>
+      <td>{{ coupon.category }}</td>
+      <td>{{ coupon.title }}</td>
+      <td>{{ coupon.description }}</td>
+      <td>{{ coupon.startDate }}</td>
+      <td>{{ coupon.endDate }}</td>
+      <td>{{ coupon.amount }}</td>
+      <td>{{ coupon.price }} $</td>
+      <td>
+        <div *ngIf="company">{{ company.id }}</div>
+      </td>
+      <td>{{ coupon.image }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/company-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

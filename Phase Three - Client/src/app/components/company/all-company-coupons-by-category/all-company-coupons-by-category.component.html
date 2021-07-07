@@ -1,0 +1,86 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #allCompanyCouponsByCategoryFormInfo="ngForm">
+    <h1>Our Coupons sorted by Category</h1>
+    <br />
+    <div>
+      <label for="category">Category: </label>
+      <select
+        name="category"
+        id="category"
+        [(ngModel)]="category"
+        #categoryInfo="ngModel"
+        required
+      >
+        <option value="ELECTRONICS">Electronics</option>
+        <option value="RESTAURANT">Restaurant</option>
+        <option value="VACATION">Vacation</option>
+        <option value="GYM">GYM</option>
+        <option value="SPA">SPA</option>
+      </select>
+      <span *ngIf="categoryInfo.errors?.required && categoryInfo.touched"
+        >*Please select the Coupons Category</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="getCompanyCouponsByCategory()"
+      [disabled]="allCompanyCouponsByCategoryFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<br />
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+
+<table *ngIf="allCompanyCouponsByCategory">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Publish Date</th>
+      <th>Expiry Date</th>
+      <th>Units in Stock</th>
+      <th>Price</th>
+      <th>Company ID</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of allCompanyCouponsByCategory">
+      <td>{{ c.id }}</td>
+      <td>{{ c.category }}</td>
+      <td>{{ c.title }}</td>
+      <td>{{ c.description }}</td>
+      <td>{{ c.startDate }}</td>
+      <td>{{ c.endDate }}</td>
+      <td>{{ c.amount }}</td>
+      <td>{{ c.price }} $</td>
+      <td>
+        <div *ngIf="c.company">{{ c.company.id }}</div>
+      </td>
+      <td>{{ c.image }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/company-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

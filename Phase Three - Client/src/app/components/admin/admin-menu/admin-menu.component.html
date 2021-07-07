@@ -1,0 +1,41 @@
+<div class="container">
+  <router-outlet></router-outlet>
+  <div *ngIf="activatedRoute.children.length === 0">
+    <h1>Administrator Menu</h1>
+    <br />
+    <button routerLink="add-company" routerLinkActive="active-link">
+      Add Company
+    </button>
+    <button routerLink="update-company" routerLinkActive="active-link">
+      Update Company
+    </button>
+    <button routerLink="delete-company" routerLinkActive="active-link">
+      Delete Company
+    </button>
+    <button routerLink="all-companies" routerLinkActive="active-link">
+      All registered <br />
+      Companies
+    </button>
+    <button routerLink="one-company" routerLinkActive="active-link">
+      Get a single <br />
+      Company Details
+    </button>
+    <button routerLink="add-customer" routerLinkActive="active-link">
+      Add Customer
+    </button>
+    <button routerLink="update-customer" routerLinkActive="active-link">
+      Update Customer
+    </button>
+    <button routerLink="delete-customer" routerLinkActive="active-link">
+      Delete Customer
+    </button>
+    <button routerLink="all-customers" routerLinkActive="active-link">
+      All registered <br />
+      Customers
+    </button>
+    <button routerLink="one-customer" routerLinkActive="active-link">
+      Get a single <br />
+      Customer Details
+    </button>
+  </div>
+</div>

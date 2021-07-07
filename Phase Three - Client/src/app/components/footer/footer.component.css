@@ -1,0 +1,14 @@
+p {
+  color: whitesmoke;
+  position: relative;
+  top: 50%;
+  margin: 0;
+  padding: 5px;
+  transform: translate(0, -50%);
+}
+
+div {
+  background-color: black;
+  text-align: left;
+  height: 100%;
+}

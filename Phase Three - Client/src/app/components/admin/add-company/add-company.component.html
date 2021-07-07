@@ -1,0 +1,87 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #addCompanyFormInfo="ngForm">
+    <h1>Create a Company Account</h1>
+    <br />
+    <div>
+      <label for="name">Name: </label>
+      <input
+        id="name"
+        name="name"
+        #nameInfo="ngModel"
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="company.name"
+        required
+        pattern="^[A-Z].*$"
+      />
+      <span *ngIf="nameInfo.errors?.required && nameInfo.touched"
+        >*Name is missing</span
+      >
+      <span *ngIf="nameInfo.errors?.pattern && nameInfo.touched"
+        >*Name must start with a Capital letter</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="email">Email: </label>
+      <input
+        id="email"
+        name="email"
+        #emailInfo="ngModel"
+        type="text"
+        placeholder="Email"
+        [(ngModel)]="company.email"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{3,5}|[a-zA-z]{2,5}\.[a-zA-Z]{2,5})"
+      />
+      <span *ngIf="emailInfo.errors?.required && emailInfo.touched"
+        >*Email is missing</span
+      >
+      <span *ngIf="emailInfo.errors?.pattern && emailInfo.touched"
+        >*Email is unvalid (ex: David@mail-service.com)</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="password">Password: </label>
+      <input
+        id="password"
+        name="password"
+        #passwordInfo="ngModel"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="company.password"
+        required
+        pattern=".{5,}"
+      />
+      <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched"
+        >*Password is missing</span
+      >
+      <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched"
+        >*Password is unvalid. Password must include at least 5
+        characters.</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="addCompany()"
+      [disabled]="addCompanyFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<div class="backToMenu">
+  <button routerLink="/admin-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="homeandabout">
+    <button routerLink="home" routerLinkActive="active-link">Home</button>
+    <button routerLink="about" routerLinkActive="active-link">About</button>
+  </div>
+  <div class="loginandout">
+    <button
+      *ngIf="!isClientLoggedIn()"
+      routerLink="login"
+      routerLinkActive="active-link"
+    >
+      Login
+    </button>
+    <button
+      *ngIf="isClientLoggedIn()"
+      routerLink="logout"
+      routerLinkActive="active-link"
+    >
+      Logout
+    </button>
+  </div>
+</div>

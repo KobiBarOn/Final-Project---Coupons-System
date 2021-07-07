@@ -1,0 +1,9 @@
+button {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\05_internal_street_lr.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

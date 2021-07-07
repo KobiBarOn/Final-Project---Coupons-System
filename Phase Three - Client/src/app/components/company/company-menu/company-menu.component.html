@@ -1,0 +1,40 @@
+<div class="container">
+  <router-outlet></router-outlet>
+  <div *ngIf="activatedRoute.children.length === 0">
+    <h1>Company Menu</h1>
+    <br />
+    <button routerLink="company-details" routerLinkActive="active-link">
+      My Company Account
+    </button>
+    <button routerLink="add-coupon" routerLinkActive="active-link">
+      Add Coupon
+    </button>
+    <button routerLink="update-coupon" routerLinkActive="active-link">
+      Update Coupon
+    </button>
+    <button routerLink="delete-coupon" routerLinkActive="active-link">
+      Delete Coupon
+    </button>
+    <button routerLink="all-company-coupons" routerLinkActive="active-link">
+      Our Coupons
+    </button>
+    <button routerLink="one-company-coupon" routerLinkActive="active-link">
+      Get a single <br />
+      Coupon Details
+    </button>
+    <button
+      routerLink="all-company-coupons-by-category"
+      routerLinkActive="active-link"
+    >
+      Search for Coupons <br />
+      by Category
+    </button>
+    <button
+      routerLink="all-company-coupons-by-max-price"
+      routerLinkActive="active-link"
+    >
+      Search for Coupons <br />
+      by Price Limit
+    </button>
+  </div>
+</div>

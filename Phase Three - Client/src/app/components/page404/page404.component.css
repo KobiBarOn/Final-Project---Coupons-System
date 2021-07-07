@@ -1,0 +1,21 @@
+div {
+  height: 100%;
+  width: 100%;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\404.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  top: 50%;
+  -ms-transform: translateY(450%);
+  transform: translateY(450%);
+  position: absolute;
+  background-color: black;
+  font-size: large;
+  color: whitesmoke;
+  padding: 5px 10px;
+}

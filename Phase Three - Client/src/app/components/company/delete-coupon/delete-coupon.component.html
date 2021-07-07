@@ -1,0 +1,45 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #deleteCouponFormInfo="ngForm">
+    <h1>
+      Delete Coupon <br />
+      (will also delete all of its purchase history)
+    </h1>
+    <br />
+    <div>
+      <label for="id">ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Coupon ID you want to delete"
+        [(ngModel)]="id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*ID is missing</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="deleteCoupon()"
+      [disabled]="deleteCouponFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<div class="backToMenu">
+  <button routerLink="/company-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

@@ -1,0 +1,69 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="oneCustomer">
+  <form action="" #customerFormInfo="ngForm">
+    <h1>A single Customer Details</h1>
+    <br />
+    <div>
+      <label for="id">Customer ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Requested Customer ID"
+        [(ngModel)]="id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*Customer ID is missing</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="getOneCustomer()"
+      [disabled]="customerFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+<br />
+<table *ngIf="customer">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="customer">
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.firstName }}</td>
+      <td>{{ customer.lastName }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.password }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/admin-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

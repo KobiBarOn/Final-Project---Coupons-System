@@ -1,0 +1,110 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="container">
+  <form action="" #updateCompanyFormInfo="ngForm">
+    <h1>Update Company (Company Name is Unupdatable)</h1>
+    <br />
+    <div>
+      <label for="id">ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Company ID you want to update"
+        [(ngModel)]="company.id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*ID is missing</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="email">Email: </label>
+      <input
+        id="email"
+        name="email"
+        #emailInfo="ngModel"
+        type="text"
+        placeholder="Email"
+        [(ngModel)]="company.email"
+        required
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.([a-zA-Z]{3,5}|[a-zA-z]{2,5}\.[a-zA-Z]{2,5})"
+      />
+      <span *ngIf="emailInfo.errors?.required && emailInfo.touched"
+        >*Email is missing</span
+      >
+      <span *ngIf="emailInfo.errors?.pattern && emailInfo.touched"
+        >*Email is unvalid (ex: David@mail-service.com)</span
+      >
+    </div>
+    <br />
+    <div>
+      <label for="password">Password: </label>
+      <input
+        id="password"
+        name="password"
+        #passwordInfo="ngModel"
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="company.password"
+        required
+        pattern=".{5,}"
+      />
+      <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched"
+        >*Password is missing</span
+      >
+      <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched"
+        >*Password is unvalid. Password must include at least 5
+        characters.</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="updateCompany()"
+      [disabled]="updateCompanyFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<br />
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+
+<table *ngIf="company">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="company.name">
+      <td>{{ company.id }}</td>
+      <td>{{ company.name }}</td>
+      <td>{{ company.email }}</td>
+      <td>{{ company.password }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/admin-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

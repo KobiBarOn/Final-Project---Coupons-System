@@ -1,0 +1,67 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="oneCompany">
+  <form action="" #companyFormInfo="ngForm">
+    <h1>A single Company Details</h1>
+    <br />
+    <div>
+      <label for="id">Company ID: </label>
+      <input
+        id="id"
+        name="id"
+        #idInfo="ngModel"
+        type="number"
+        placeholder="Requested Company ID"
+        [(ngModel)]="id"
+        required
+      />
+      <span *ngIf="idInfo.errors?.required && idInfo.touched"
+        >*Company ID is missing</span
+      >
+    </div>
+    <br />
+    <button
+      value="Submit"
+      (click)="getOneCompany()"
+      [disabled]="companyFormInfo.form.invalid"
+    >
+      Submit
+    </button>
+    <br />
+  </form>
+</div>
+
+<ng-template #loading>
+  <img src="assets/Images/loading.gif" alt="Loading" />
+</ng-template>
+
+<div *ngIf="isClick; then loading"></div>
+<br />
+<table *ngIf="company">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="company">
+      <td>{{ company.id }}</td>
+      <td>{{ company.name }}</td>
+      <td>{{ company.email }}</td>
+      <td>{{ company.password }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="backToMenu">
+  <button routerLink="/admin-menu" routerLinkActive="active-link">
+    Back to Menu
+  </button>
+</div>

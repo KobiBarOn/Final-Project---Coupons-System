@@ -1,0 +1,53 @@
+div {
+  overflow: overlay;
+  height: 100%;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: whitesmoke;
+  background-color: black;
+  font-size: xx-large;
+  margin-top: 15px;
+  margin-bottom: -25px;
+}
+
+button {
+  position: static;
+  font-size: x-large;
+  margin: 2% 2%;
+  padding: 25px 50px;
+  color: whitesmoke;
+  font-weight: bold;
+  color: whitesmoke;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  background: black;
+  border: 1px solid #f6f58fef;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+button:hover {
+  color: black;
+  transition: 1s ease-in-out;
+  background: #f6f58fef;
+}
+
+.active-link {
+  color: black;
+  background: #f6f58fef;
+}
+
+.container {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-image: url(C:\Visual_Code\Angular_Workspace\CouponSystemWebsite\src\assets\Images\05_internal_street_lr.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

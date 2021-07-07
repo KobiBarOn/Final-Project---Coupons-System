@@ -1,0 +1,44 @@
+<link
+  href="http://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+  type="text/css"
+  hidden
+/>
+<div class="allCustomerCoupons">
+  <br />
+  <h1>My Purchase History</h1>
+
+  <ng-template #loading>
+    <img src="assets/Images/loading.gif" alt="Loading" />
+  </ng-template>
+
+  <!-- Coupon_ID, Company_ID, startDate and amount is not included - I don't think that a customer should see this data -->
+  <table *ngIf="allCouponsPurchases; else loading">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Expiry Date</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coupon of allCouponsPurchases">
+        <td>{{ coupon.category }}</td>
+        <td>{{ coupon.title }}</td>
+        <td>{{ coupon.description }}</td>
+        <td>{{ coupon.endDate }}</td>
+        <td>{{ coupon.price }} $</td>
+        <td>{{ coupon.image }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="backToMenu">
+    <button routerLink="/customer-menu" routerLinkActive="active-link">
+      Back to Menu
+    </button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <router-outlet></router-outlet>
+  <div *ngIf="activatedRoute.children.length === 0">
+    <h1>Customer Menu</h1>
+    <br />
+    <button routerLink="customer-details" routerLinkActive="active-link">
+      My Account
+    </button>
+    <button routerLink="all-coupons" routerLinkActive="active-link">
+      See Available Coupons
+    </button>
+    <button routerLink="all-customer-coupons" routerLinkActive="active-link">
+      My Purchase History
+    </button>
+    <button
+      routerLink="all-customer-coupons-by-category"
+      routerLinkActive="active-link"
+    >
+      My Purchase History <br />
+      by Category
+    </button>
+    <button
+      routerLink="all-customer-coupons-by-max-price"
+      routerLinkActive="active-link"
+    >
+      My Purchase History <br />
+      by Price Limit
+    </button>
+  </div>
+</div>
